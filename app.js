@@ -81,6 +81,17 @@ app.get('/getpost/:idd',(req, res) => {
     });
 });
 
+// Update data(post)
+app.get('/updatepost/:idd',(req, res) => {
+    let newTitle = 'Update Title H!';
+    let sql = `UPDATE posts SET title="${newTitle}" WHERE id = ${req.params.idd}`;
+    let query=db.query(sql,(err, result) => {
+        if(err)throw err;
+        console.log(result);
+        res.send('Data (post) Updated...');
+    });
+});
+
 app.listen('3000', () => {
     console.log('Server started on port 3000');
 });
