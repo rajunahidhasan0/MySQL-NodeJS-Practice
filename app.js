@@ -72,8 +72,8 @@ app.get('/getposts',(req, res)=>{
 });
 
 // Select single post
-app.get('/getpost/:id',(req, res)=>{
-    let sql = 'SELECT * FROM posts WHERE id = ${req.param.id}';
+app.get('/getpost/:idd',(req, res) => {
+    let sql = `SELECT * FROM posts WHERE id=${req.params.idd}`; //for passing variable: use backqoutes(`), instead of qoutes(' or ")
     let query=db.query(sql,(err, result) => {
         if(err)throw err;
         console.log(result);
